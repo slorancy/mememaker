@@ -15,10 +15,12 @@ class Router {
         } else {
             $parts = explode('/', $request);
 
-            //if($parts[0] == 'login' && (count($parts) == 1 || $parts[1] == '')){ // Route vers la page de connexion
-            //    $result['controller']       = 'User';
-            //    $result['action']           = 'login';
-            //}
+            if($parts[0] == 'meme' && ((count($parts) == 1) || count($parts) == 2)){ // Route vers la page de meme
+                $result['controller']       = 'Page';
+                $result['action']           = 'meme';
+                if(count($parts) == 2)
+                    $result['params']['id'] = $parts[1];
+            }
         }
 
         return $result;
