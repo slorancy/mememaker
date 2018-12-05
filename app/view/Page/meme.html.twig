@@ -5,28 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row align-items-center">
+ 
 
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-<img src="assets/images/{{ image.NAME }}" width="100%">
+        <div class="col-md-6 col-xs-12 d-flex justify-content-center align-items-center">
+        
+            <div class="relative">
+                <img id= "meme-image" src="assets/images/{{ image.NAME }}" width="100%">
+                <div id="texthaut" class="absolute texthaut text-center"></div>
+                <div id="textbas" class="absolute textbas text-center"></div>
+            </div>
 
         </div>
 
 
-        <div class="col-md-6 text-right">
- <h1 class="blue">Mememaker</h1>
-        <h2>Generateur de memes</h2>
+        <div class="col-md-6 col-xs-12 pl-5 pr-5">
+            <h1 class="blue">Mememaker</h1>
+            <h4>Generateur de memes</h4>
 
-        <div class="row pt-3">
-            {% for imagedefault in imagedefaults %}
-                <div class="col-3"><a href="./meme/{{ imagedefault.ID }}"><img src="./assets/images/{{ imagedefault.NAME }}" width="100" heigh="100"></a></div>
-            {% endfor %}
-           
-        </div>
+            <div class="row pt-3" id="meme-samples">
+                {% for imagedefault in imagedefaults %}
+                    <div class="col-3"><img data-id="{{ imagedefault.ID }}" src="./assets/images/{{ imagedefault.NAME }}" width="100"></div>
+                {% endfor %}
+            
+            </div>
 
-        <div class="row pt-3">
-        <input type="text"></input>
+            <form class="row pt-3" id="control" action="./assets/image.php" method="post">
+                <input type="text" class="inputtxt" id="texthautinput" placeholder="texte haut" name="texthaut">
+                <input type="text" class="inputtxt"  id="textbasinput" placeholder="texte bas" name="textbas">
+                <input type="hidden" id="idImageUpload" value="{{ image.ID }}" name="test">
+                <input class="btn" type="submit" value="Envoyer" name="submit">   
+            </form>
         </div>
         
-    </div>
+
 {% endblock %}

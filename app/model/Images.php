@@ -29,7 +29,7 @@ class Images extends Model {
     public static function getImage(){
         
         $db = Database::getInstance();
-        $sql = "SELECT `NAME` FROM `images_meme` ORDER BY id DESC LIMIT 0,1";
+        $sql = "SELECT * FROM `images_meme` ORDER BY id DESC LIMIT 0,1";
 
         $image = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
 
@@ -59,6 +59,8 @@ class Images extends Model {
 
     return $imagedefault;
 }
+
+
 
 
     

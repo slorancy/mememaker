@@ -21,6 +21,13 @@ class Router {
                 if(count($parts) == 2)
                     $result['params']['id'] = $parts[1];
             }
+
+            if($parts[0] == 'publish' && ((count($parts) == 1) || count($parts) == 2)){ // Route vers la page de meme
+                $result['controller']       = 'Page';
+                $result['action']           = 'publish';
+                if(count($parts) == 2)
+                    $result['params']['id'] = $parts[1];
+            }
         }
 
         return $result;

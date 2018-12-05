@@ -66,6 +66,20 @@ class PageController extends Controller {
             //'filmbygenres' => $filmsbygenres,
         ));
     }
+
+    public function publish(){
+
+        if(isset($_POST)){
+
+        }
+       
+        $template = $this->twig->loadTemplate('/Page/publish.html.twig');
+        echo $template->render(array(
+            'message'   => $message,
+            'imagedefaults' => $imagedefault
+        ));
+        
+    }
     
 }
 ?>
